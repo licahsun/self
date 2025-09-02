@@ -1,33 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.scss'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <section>
+        <header>
+          <h1>S7IGMA</h1>
+          <span>The Pulse That Guides the Streets</span>
+        </header>
+        <ul class="menu">
+          <h2>S7IGMA</h2>
+          <li><a href="#">INTRODUCTION</a></li>
+          <li><a href="#">SYSTEM</a></li>
+          <li><a href="#">CHARACTER</a></li>
+          <li><a href="#">MUSIC</a></li>
+          <li><a href="#">NEWS</a></li>
+        </ul>
+        <p>無聲之城，暗潮湧動</p>
+      </section>
+
+      <section>
+        <h2></h2>
+      </section>
+
+      <section>
+        <h2></h2>
+      </section>
+
+      <section>
+        <h2></h2>
+      </section>
+
+      <section>
+        <h2></h2>
+      </section>
+
+      <section>
+        <h2></h2>
+      </section>
+
+      <section>
+        <h2></h2>
+      </section>
+      
+      <section>
+        <h2></h2>
+      </section>
+
     </>
   )
 }
