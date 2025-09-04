@@ -122,7 +122,31 @@ header {
 section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100vw;
   height: 100vh;
-  // background-color: black;
+}
+
+.introduction {
+background-color: #000;
+.introTitle {
+  background-color: #3973B4;
+  color: white;
+  text-align: center;
+  width: 374px;
+  padding: 0 11px;
+}
+
+.introH2 {
+  font-size: 5rem;
+  font-weight: 700;
+
+}
+.introP{
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
+  color: white;
+}
 }
