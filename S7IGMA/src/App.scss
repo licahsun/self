@@ -16,14 +16,21 @@ body {
   // border: 1px solid red;
 }
 
-header {
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.topBg {
   position: relative;
   height: 100vh;
   background-image: url(../public/images/header_bg.avif);
   background-position: left top;
 }
 
-.header {
+.top {
   .menu_logo {
     position: absolute;
     right: 20%;
@@ -119,13 +126,6 @@ header {
   }
 }
 
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
 
 .introduction {
 background-color: #000;
