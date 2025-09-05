@@ -22,18 +22,21 @@ section {
   align-items: center;
   width: 100vw;
   height: 100vh;
-}
-.topBg {
-  position: relative;
-  height: 100vh;
-  background-image: url(../public/images/header_bg.avif);
-  background-position: left top;
+
 }
 
+
 .top {
+  .topBg {
+    position: relative;
+    height: 100vh;
+    background-image: url(../public/images/header_bg.avif);
+    background-position: left top;
+  }
+
   .menu_logo {
     position: absolute;
-    right: 20%;
+    right: 10%;
     top: 20%;
     width: 30%;
     display: flex;
@@ -81,7 +84,7 @@ section {
 
   .menu_p {
     position: absolute;
-    right: 50%;
+    right: 45%;
     top: 23%;
     display: flex;
 
@@ -106,7 +109,7 @@ section {
 
   button {
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
     width: 100vw;
     height: 40px;
     border: 2px solid #82D6B6;
@@ -128,13 +131,46 @@ section {
 
 
 .introduction {
-background-color: #000;
+  background-image: url(../public/images/introduction+bg.avif);
+  background-size: cover;
+  background-position: center; //bg cover 最好搭配position center
+  background-attachment: fixed; //固定背景的語法
+  position: relative;
+  overflow: hidden;
+  height: 150vh;
+
+  .introItem1 {
+    position: absolute;
+    left: 5%;
+    top: -15%;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(0.8);
+    }
+  }
+
+  .introItem2 {
+    position: absolute;
+    right: 5%;
+    bottom: -5%;
+    rotate: 90deg;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(0.8);
+    }
+  }
+}
+
 .introTitle {
   background-color: #3973B4;
   color: white;
   text-align: center;
   width: 374px;
   padding: 0 11px;
+  margin-top: 10%;
+  margin-bottom: 3%;
 }
 
 .introH2 {
@@ -142,11 +178,24 @@ background-color: #000;
   font-weight: 700;
 
 }
-.introP{
+
+.introPWord {
+  background-color: #000;
+  width: auto;
   text-align: center;
   font-size: 1.25rem;
   font-weight: 600;
-  line-height: 2rem;
   color: white;
 }
+
+.introCircle {
+  position: absolute;
+  top: 5%;
+  animation: introCircle 50s infinite;
+
+  @keyframes introCircle {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
