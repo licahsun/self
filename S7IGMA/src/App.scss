@@ -22,15 +22,13 @@ section {
   align-items: center;
   width: 100vw;
   height: 100vh;
-
 }
-
 
 .top {
   .topBg {
     position: relative;
     height: 100vh;
-    background-image: url(../public/images/header_bg.avif);
+    background-image: linear-gradient(#ffffff00,#7886747b),url(../public/images/header_bg.avif);
     background-position: left top;
   }
 
@@ -72,15 +70,12 @@ section {
       border-bottom: 1px solid #87eb8200;
       color: #DAFFD8;
 
-
       &:hover {
         border-bottom: 1px solid #87EB82;
         color: #87EB82;
       }
     }
   }
-
-
 
   .menu_p {
     position: absolute;
@@ -103,7 +98,6 @@ section {
       font-weight: 700;
       letter-spacing: 7px;
       line-height: 112.404%;
-      /* 53.954px */
     }
   }
 
@@ -129,21 +123,79 @@ section {
   }
 }
 
-
 .introduction {
-  background-image: url(../public/images/introduction+bg.avif);
+  background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.059)), url(../public/images/introduction+bg.avif);
   background-size: cover;
-  background-position: center; //bg cover 最好搭配position center
-  background-attachment: fixed; //固定背景的語法
+  background-position: center;
+  background-attachment: fixed;
   position: relative;
   overflow: hidden;
   height: 150vh;
+
+  // 初始狀態 - 所有元素隱藏
+  .introCircle,
+  .introTitle,
+  .introPWord {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+  }
+
+  // 可見狀態 - 依序淡入
+  &.visible {
+    .introCircle {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.2s;
+    }
+
+    .introItem1 {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.4s;
+    }
+
+    .introItem2 {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.6s;
+    }
+
+    .introTitle {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.8s;
+    }
+
+    .introPWord {
+      opacity: 1;
+      transform: translateY(0);
+      border: 3px solid #00e880;
+
+      &:nth-child(1) {
+        transition-delay: 1.0s;
+      }
+
+      &:nth-child(3) {
+        transition-delay: 1.2s;
+      }
+
+      &:nth-child(5) {
+        transition-delay: 1.4s;
+      }
+
+      &:nth-child(7) {
+        transition-delay: 1.6s;
+      }
+    }
+  }
 
   .introItem1 {
     position: absolute;
     left: 5%;
     top: -15%;
-    transition: transform 1s;
+    transition: transform .5s;
+    
 
     &:hover {
       transform: scale(0.8);
@@ -155,47 +207,135 @@ section {
     right: 5%;
     bottom: -5%;
     rotate: 90deg;
-    transition: transform 1s;
+    transition: transform .5s;
 
     &:hover {
       transform: scale(0.8);
     }
   }
+
+  .introItem3 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+
+  .introItem4 {
+    position: absolute;
+    top: 40%;
+    right: -5%;
+  }
+
+  .introTitle {
+    background-color: #46bc8f;
+    color: white;
+    text-align: center;
+    width: 374px;
+    padding: 0 11px;
+    top: 30%;
+    position: absolute;
+  }
+
+  .introH2 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .introWords {
+    position: absolute;
+    top: 30%;
+    width: 26%;
+    // background-color: #0000006f;
+
+    .introPWord {
+      // background-color: rgba(0, 0, 0, 0.8);
+      width: auto;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+      padding: 15px 20px;
+      margin-bottom: 10px;
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  .introCircle {
+    position: absolute;
+    top: 21%;
+    
+    animation: introCircleRotation 50s infinite linear;
+
+    @keyframes introCircleRotation {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  // 響應式設計
+  @media (max-width: 768px) {
+    .introH2 {
+      font-size: 3rem;
+    }
+
+    .introTitle {
+      width: 280px;
+      margin-top: 15%;
+    }
+
+    .introWords {
+      top: 35%;
+      padding: 0 20px;
+
+      .introPWord {
+        font-size: 1rem;
+        padding: 12px 16px;
+      }
+    }
+
+    .introItem1 {
+      left: 2%;
+      top: -10%;
+
+      img {
+        width: 80px;
+        height: auto;
+      }
+    }
+
+    .introItem2 {
+      right: 2%;
+      bottom: 0%;
+
+      img {
+        width: 80px;
+        height: auto;
+      }
+
+
+    }
+  }
 }
 
-.introTitle {
-  background-color: #3973B4;
-  color: white;
-  text-align: center;
-  width: 374px;
-  padding: 0 11px;
-  margin-top: 10%;
-  margin-bottom: 3%;
-}
+@media (max-width: 480px) {
+  .introH2 {
+    font-size: 2.5rem;
+  }
 
-.introH2 {
-  font-size: 5rem;
-  font-weight: 700;
+  .introTitle {
+    width: 250px;
+  }
 
-}
-
-.introPWord {
-  background-color: #000;
-  width: auto;
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: white;
-}
-
-.introCircle {
-  position: absolute;
-  top: 5%;
-  animation: introCircle 50s infinite;
-
-  @keyframes introCircle {
-    100% {
-      transform: rotate(360deg);
+  .introWords {
+    .introPWord {
+      font-size: 0.9rem;
+      padding: 10px 14px;
     }
   }
 }
