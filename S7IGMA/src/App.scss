@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-image: url(../public/images/bodyBackGround.avif);
+  background-attachment: fixed;
 }
 
 #root {
@@ -28,7 +30,7 @@ section {
   .topBg {
     position: relative;
     height: 100vh;
-    background-image: linear-gradient(#ffffff00,#7886747b),url(../public/images/header_bg.avif);
+    background-image: linear-gradient(#ffffff00, #7886747b), url(../public/images/header_bg.avif);
     background-position: left top;
   }
 
@@ -195,7 +197,7 @@ section {
     left: 5%;
     top: -15%;
     transition: transform .5s;
-    
+
 
     &:hover {
       transform: scale(0.8);
@@ -241,7 +243,7 @@ section {
     font-weight: 700;
     margin: 0;
   }
-  
+
   .introWords {
     position: absolute;
     top: 30%;
@@ -264,7 +266,7 @@ section {
   .introCircle {
     position: absolute;
     top: 21%;
-    
+
     animation: introCircleRotation 50s infinite linear;
 
     @keyframes introCircleRotation {
@@ -337,5 +339,108 @@ section {
       font-size: 0.9rem;
       padding: 10px 14px;
     }
+  }
+}
+
+//跑馬燈
+.marqueeSec {
+  height: auto;
+
+  .marquee {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    height: 200px;
+    overflow-x: hidden;
+
+  }
+
+  .track {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 32s linear infinite;
+
+    .content {
+      font-size: 8rem;
+
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.system {
+  height: 100vh;
+  background-image: url(../public/images/systemBg.avif);
+  position: relative;
+
+  h2,
+  p,
+  img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+  }
+
+  &.visible {
+    h2 {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.2s;
+    }
+
+    p {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.4s;
+    }
+
+    img {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.6s;
+    }
+  }
+
+  h2 {
+    color: #5BFFE2;
+    text-shadow: 0 4px 6.5px rgba(0, 0, 0, 0.55), 0 4px 7.2px #FDFFFF;
+    font-family: Orbitron;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    position: absolute;
+    top: 15%;
+    right: 18%;
+  }
+
+  p {
+    font-size: 1.2rem;
+    letter-spacing: 3.36px;
+    line-height: 166%;
+    margin-top: 40px;
+    position: absolute;
+    top: 25%;
+    right: 15%;
+    width: 13%;
+    color: white;
+  }
+
+  img {
+    position: absolute;
+    top: 31%;
+    right: 29%;
+    width: 30%;
   }
 }
