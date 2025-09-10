@@ -5,6 +5,7 @@ import introCircle from '../public/images/introCircle.avif'
 import introItem from '../public/images/introItem.webp'
 import introItem3 from '../public/images/introItem03.svg'
 import introItem4 from '../public/images/introItem04.svg'
+import systemItem from '../public/images/systemItem.avif'
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -85,17 +86,26 @@ function App() {
           </div>
         </section>
 
-        <section>
-          <p>LOG IN TO COMBAT SYSTEM  LOG IN TO COMBAT SYSTEM</p>
+        <section className='marqueeSec'>
+          <div className="marquee">
+            <div className="track">
+              <div className="content">&nbsp;LOG IN TO COMBAT SYSTEM  LOG IN TO COMBAT SYSTEM  LOG IN TO COMBAT SYSTEM  LOG IN TO COMBAT SYSTEM  LOG IN TO COMBAT SYSTEM  LOG IN TO COMBAT SYSTEM</div>
+            </div>
+          </div>
         </section>
 
-        <section>
+        <section
+          ref={sectionRef}
+          className={`system ${isVisible ? 'visible' : ''}`}>
+
+          <div className="video"></div>
           <h2>SYSTEM</h2>
           <p>
             每一次點擊與滑動，都將隨著節拍點亮整個都市。<br /><br />
             玩家將透過霓虹閃耀的介面設計、流暢的判定線特效 與 沉浸式角色互動畫面，體驗前所未有的音樂節奏冒險。<br /><br />
             不論是挑戰高速曲目的快感，還是解鎖角色專屬劇情的細膩情感，遊戲畫面都將引領你一步步深入這座未來都市的律動核心。
           </p>
+          <img src={systemItem} alt="" />
         </section>
 
         <section>
