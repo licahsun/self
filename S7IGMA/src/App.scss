@@ -115,12 +115,28 @@ section {
     font-size: 1.25rem;
     font-family: "Noto Serif TC";
     transition: 1s;
+    animation: blink 2s ease-in-out infinite;
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
 
     &:hover {
       border: 2px solid #82D6B6;
       background: rgba(43, 103, 75, 0.74);
       box-shadow: 0 4px 19.7px 0 rgba(255, 255, 255, 0.66);
       backdrop-filter: blur(3.450000047683716px);
+      animation-play-state: paused;
     }
   }
 }

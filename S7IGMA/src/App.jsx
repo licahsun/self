@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.scss'
+import Character from "./pages/Character"
 import Logo from '../public/images/s7igma.svg'
 import introCircle from '../public/images/introCircle.avif'
 import introItem from '../public/images/introItem.webp'
@@ -109,9 +110,7 @@ function App() {
         </section>
 
         <section>
-          <h2>CHARACTER</h2>
-          <h3>角色名</h3>
-          <p>角色介紹</p>
+          <Character />
         </section>
 
         <section>
