@@ -29,6 +29,7 @@ section {
 .top {
   .topBg {
     position: relative;
+    width: 100vw;
     height: 100vh;
     background-image: linear-gradient(#ffffff00, #7886747b), url(../public/images/header_bg.avif);
     background-position: left top;

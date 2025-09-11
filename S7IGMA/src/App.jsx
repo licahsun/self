@@ -9,14 +9,26 @@ import introItem4 from '../public/images/introItem04.svg'
 import systemItem from '../public/images/systemItem.avif'
 
 function App() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  // 為每個區塊建立獨立的狀態
+  const [isIntroVisible, setIsIntroVisible] = useState(false);
+  const [isSystemVisible, setIsSystemVisible] = useState(false);
+  const [isCharacterVisible, setIsCharacterVisible] = useState(false);
+  const [isMusicVisible, setIsMusicVisible] = useState(false);
+  const [isNewsVisible, setIsNewsVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
+  // 為每個區塊建立獨立的 ref
+  const introRef = useRef(null);
+  const systemRef = useRef(null);
+  const characterRef = useRef(null);
+  const musicRef = useRef(null);
+  const newsRef = useRef(null);
+
+  // 建立通用的 Intersection Observer 函數
+  const createObserver = (setVisible) => {
+    return new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setVisible(true);
         }
       },
       {
@@ -24,15 +36,30 @@ function App() {
         rootMargin: '-50px 0px' // 提前 50px 觸發
       }
     );
+  };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+  useEffect(() => {
+    // 為每個區塊建立 observer
+    const introObserver = createObserver(setIsIntroVisible);
+    const systemObserver = createObserver(setIsSystemVisible);
+    const characterObserver = createObserver(setIsCharacterVisible);
+    const musicObserver = createObserver(setIsMusicVisible);
+    const newsObserver = createObserver(setIsNewsVisible);
 
+    // 開始觀察各個區塊
+    if (introRef.current) introObserver.observe(introRef.current);
+    if (systemRef.current) systemObserver.observe(systemRef.current);
+    if (characterRef.current) characterObserver.observe(characterRef.current);
+    if (musicRef.current) musicObserver.observe(musicRef.current);
+    if (newsRef.current) newsObserver.observe(newsRef.current);
+
+    // 清理函數
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (introRef.current) introObserver.unobserve(introRef.current);
+      if (systemRef.current) systemObserver.unobserve(systemRef.current);
+      if (characterRef.current) characterObserver.unobserve(characterRef.current);
+      if (musicRef.current) musicObserver.unobserve(musicRef.current);
+      if (newsRef.current) newsObserver.unobserve(newsRef.current);
     };
   }, []);
 
@@ -63,8 +90,8 @@ function App() {
         </div>
 
         <section
-          ref={sectionRef}
-          className={`introduction ${isVisible ? 'visible' : ''}`}
+          ref={introRef}
+          className={`introduction ${isIntroVisible ? 'visible' : ''}`}
         >
           <div className='introCircle'><img src={introCircle} alt="" /></div>
           <div className="introItem1"><img src={introItem} alt="" /></div>
@@ -96,8 +123,8 @@ function App() {
         </section>
 
         <section
-          ref={sectionRef}
-          className={`system ${isVisible ? 'visible' : ''}`}>
+          ref={systemRef}
+          className={`system ${isSystemVisible ? 'visible' : ''}`}>
 
           <div className="video"></div>
           <h2>SYSTEM</h2>
@@ -109,15 +136,24 @@ function App() {
           <img src={systemItem} alt="" />
         </section>
 
-        <section>
+        <section
+          ref={characterRef}
+          className={`character-section ${isCharacterVisible ? 'visible' : ''}`}
+        >
           <Character />
         </section>
 
-        <section>
+        <section
+          ref={musicRef}
+          className={`music-section ${isMusicVisible ? 'visible' : ''}`}
+        >
           <h2>MUSIC</h2>
         </section>
 
-        <section>
+        <section
+          ref={newsRef}
+          className={`news-section ${isNewsVisible ? 'visible' : ''}`}
+        >
           <h2>NEWS</h2>
         </section>
       </main>
