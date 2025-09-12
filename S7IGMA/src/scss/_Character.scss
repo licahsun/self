@@ -1,34 +1,63 @@
-.Characters {
-    .Character {
-        h2 {
-            writing-mode: vertical-rl;
-            color: #5BFFE2;
-            text-shadow: 0 4px 6.5px rgba(0, 0, 0, 0.55), 0 4px 7.2px #FDFFFF;
-            font-family: Orbitron;
-            font-size: 64px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
+// // * {
+// //     border: 1px solid red;
+// }
 
-        }
+.charaBg {
+    width: 100vw;
+    height: 80%;
+    margin-top: 5%;
+    background-image: url(../../public/images/charaBg01.avif);
+    padding: 5%;
 
-        h3 {
-            color: white;
-            font-size: 3.5rem;
-            font-weight: 600;
-        }
+    h2 {
+        writing-mode: vertical-rl;
+        color: #5BFFE2;
+        text-shadow: 0 4px 6.5px rgba(0, 0, 0, 0.55), 0 4px 7.2px #FDFFFF;
+        font-family: Orbitron;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
 
-        p{
-            width: 27%;
-        }
-        
-        .charaItem01{
-            width: 40%;
-        }
+        position: absolute;
+        right: 55%;
 
-        .charaBg{
-            width: 100vw;
-            background-image: url(../../public/images/charaBg01.avif);
+    }
+
+    .Characters {
+        position: relative;
+
+        .Character {
+            display: flex;
+            justify-content: right;
+            height: 100%;
+            margin-top: 10%;
+            margin-right: 25%;
+
+
+
+            .Ch1 {
+                width: 500px;
+                height: 20%;
+                display: flex;
+                flex-direction: column;
+
+                h3 {
+                    color: white;
+                    font-size: 3.5rem;
+                    font-weight: 600;
+                }
+
+                .charaItem01 {
+                    width: 100%;
+                }
+
+                p {
+                    padding: 5%;
+                    width: 100%;
+                    color: white;
+                }
+            }
         }
     }
 }
