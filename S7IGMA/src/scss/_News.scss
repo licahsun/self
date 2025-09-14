@@ -1,0 +1,23 @@
+.news {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.696);
+
+
+    .h2 {
+        width: 10%;
+        display: block;
+
+        h2 {
+            writing-mode: vertical-rl;
+            color: #5BFFE2;
+            text-shadow: 0 4px 6.5px rgba(0, 0, 0, 0.55), 0 4px 7.2px #FDFFFF;
+            font-family: Orbitron;
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+}

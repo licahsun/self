@@ -26,13 +26,31 @@
 
     .Characters {
         position: relative;
+        
+
+
+        .Chara{
+            width: 400px;
+            position: absolute;
+            bottom: 5px;
+            left: 10%;
+
+
+            .Chara01{
+                height: 750px;
+                width: auto;
+                position: absolute;
+                bottom: 20%;
+                left: 17%;
+            }
+        }
 
         .Character {
             display: flex;
             justify-content: right;
             height: 100%;
-            margin-top: 10%;
-            margin-right: 25%;
+            margin-top: 5%;
+            // margin-right: 25%;
 
 
 
