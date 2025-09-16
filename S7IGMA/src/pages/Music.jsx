@@ -12,6 +12,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import album01 from "../../public/images/album01.avif"
 import album02 from "../../public/images/album02.avif"
 import album03 from "../../public/images/album03.avif"
+import album04 from "../../public/images/album04.avif"
 
 
 const Music = () => {
@@ -62,10 +63,10 @@ const Music = () => {
                     modules={[Pagination, Navigation]}
                     className="mySwiper"
                 >
-                    <SwiperSlide ><img src={album01} alt="" />Song 1</SwiperSlide>
-                    <SwiperSlide><img src={album02} alt="" />Song 2</SwiperSlide>
-                    <SwiperSlide><img src={album03} alt="" />Song 3</SwiperSlide>
-                    <SwiperSlide>Song 4</SwiperSlide>
+                    <SwiperSlide style={{width:'300px'}}><img src={album01} alt="" />Song 1</SwiperSlide>
+                    <SwiperSlide style={{width:'300px'}}><img src={album02} alt="" />Song 2</SwiperSlide>
+                    <SwiperSlide style={{width:'300px'}}><img src={album03} alt="" />Song 3</SwiperSlide>
+                    <SwiperSlide style={{width:'300px'}}><img src={album04} alt="" />Song 4</SwiperSlide>
                 </Swiper>
 
                 {/* <p className="append-buttons">
