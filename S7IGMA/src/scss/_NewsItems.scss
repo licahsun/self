@@ -1,4 +1,4 @@
-.newsContainer{
+.newsContainer {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -6,21 +6,37 @@
 
 }
 
-.newsItem{
-    display: flex;
-    color: white;
+.newsContainer {
     width: auto;
-
-    .newsHeader{
-        width: 15%;
-    }
-
-    .newsTitle{
+    .newsItem {
+        display: flex;
+        justify-content: right;
+        align-items: center;
         width: auto;
-    }
+        padding: 20px;
+        border-top: 1px solid #BEBEBE;
 
-    .eventDate{
-        width: 10%;
-        text-align: center;
+        .newsHeader {
+            width: 25%;
+            color: #BCE9B1;
+        }
+
+        .newsTitle {
+            width: auto;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 1rem 4rem;
+            color: #BEBEBE;
+        }
+
+        .newsDate {
+            font-size: 0.8rem;
+        }
+
+        .eventDate {
+            width: auto;
+            text-align: center;
+            color: #04E8C0;
+        }
     }
 }

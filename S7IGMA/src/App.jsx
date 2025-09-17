@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react'
 import './App.scss'
 import Top from "../src/pages/Top"
 import Introduction from "../src/pages/Introduction"
@@ -6,6 +6,7 @@ import System from "../src/pages/System"
 import Character from "./pages/Character"
 import Music from "./pages/Music"
 import News from "./pages/News"
+import Footer from "./pages/Footer"
 
 
 function App() {
@@ -63,6 +64,8 @@ function App() {
     };
   }, []);
 
+  
+
   return (
     <>
       <main>
@@ -114,7 +117,7 @@ function App() {
       </main>
 
       <footer>
-        <h2>S7IGMA</h2>
+        <Footer/>
       </footer>
     </>
   )

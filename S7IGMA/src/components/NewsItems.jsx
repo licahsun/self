@@ -13,14 +13,14 @@ const News = () => {
             id: 2,
             date: '2025/08/09',
             eventDateF: '2025/09/10',
-            eventDateT:'2025/09/12',
+            eventDateT: '2025/09/12',
             title: '【遊戲內活動】限時關卡〈Neon Pulse Challenge〉開放！'
         },
         {
             id: 3,
             date: '2025/08/09',
             eventDateF: '2025/09/10',
-            eventDateT:'2025/09/12',
+            eventDateT: '2025/09/12',
             title: '【遊戲內活動】限時關卡〈Neon Pulse Challenge〉開放！'
         },
         {
@@ -34,7 +34,7 @@ const News = () => {
             id: 5,
             date: '2025/08/09',
             eventDateF: '2025/09/10',
-            eventDateT:'2025/09/12',
+            eventDateT: '2025/09/12',
             title: '【遊戲內活動】限時關卡〈Neon Pulse Challenge〉開放！'
         },
     ];
@@ -55,14 +55,18 @@ const News = () => {
 
 function NewsItem({ news, isLatest }) {
     return (
-        <div className={`newsItem ${isLatest ? 'latest' : ''}`}>
-            <div className="newsHeader">
-                <span className="newsDate">{news.date}</span>
-                {isLatest && <span className="newBadge">&nbsp;&nbsp;&nbsp;NEW!</span>}
+        <>
+            <div className="newsContainer">
+                <div className={`newsItem ${isLatest ? 'latest' : ''}`}>
+                    <div className="newsHeader">
+                        <span className="newsDate">{news.date}</span>
+                        {isLatest && <span className="newBadge">&nbsp;&nbsp;&nbsp;NEW!</span>}
+                    </div>
+                    <div className="eventDate">{news.eventDateF}<br />-<br />{news.eventDateT}</div>
+                    <a href="#"><h3 className="newsTitle">{news.title}</h3></a>
+                </div>
             </div>
-            <div className="eventDate">{news.eventDateF}<br />-<br />{news.eventDateT}</div>
-            <h3 className="newsTitle">{news.title}</h3>
-        </div>
+        </>
     );
 }
 

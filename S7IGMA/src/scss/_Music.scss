@@ -1,7 +1,11 @@
 .musicBg {
     background-image: url(../../public/images/musicBg.avif);
+    background-repeat: noo-repeat;
+    background-size: cover;
+    background-position: center;
+    // background-color: black;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
 
     h2 {
         color: #5BFFE2;
@@ -12,7 +16,7 @@
         font-weight: 600;
         line-height: normal;
 
-        width: 100vw;
+        
         margin: 5%;
     }
 }
@@ -44,7 +48,7 @@
 
 .swiper-slide img {
     display: block;
-    width: 100%;
+    width: 50%;
     height: 100%;
     object-fit: cover;
 
@@ -60,23 +64,6 @@
     margin: 20px auto;
     overflow: visible;
 }
-
-// .append-buttons {
-//     text-align: center;
-//     margin-top: 20px;
-// }
-
-// .append-buttons button {
-//     display: inline-block;
-//     cursor: pointer;
-//     border: 1px solid #007aff;
-//     color: #007aff;
-//     text-decoration: none;
-//     padding: 4px 10px;
-//     border-radius: 4px;
-//     margin: 0 10px;
-//     font-size: 13px;
-// }
 
 .swiper-slide-active {
     width: 300px;
