@@ -5,14 +5,16 @@ const News = () => {
     return (
         <>
             <section className="news">
-                <div className="newsH2"><h2>NEWS</h2></div>
-                <div className="newsContent">
-                    <div className="dateTitle">
-                        <div className="date">DATE</div>
-                        <div className="title">TITLE</div>
+                {/* <!-- 左側裝飾區域 --> */}
+                <div class="left-decoration">
+                    <div class="news-vertical">NEWS</div>
+                    <div class="circular-decoration"></div>
+                    <div class="bottom-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
                     </div>
-                    <NewsItems />
                 </div>
+                <NewsItems />
             </section>
         </>
     )

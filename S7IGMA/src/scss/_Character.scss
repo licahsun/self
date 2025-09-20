@@ -1,9 +1,13 @@
-.charaBg {
+.chara{
     width: 100vw;
-    height: 80%;
-    margin-top: 5%;
+    height: 100vh;
     background-image: url(../../public/images/charaBg01.avif);
     background-repeat: no-repeat;
+}
+.charaBg {
+    width: 100%;
+    height: 80%;
+    margin-top: 10%;
     padding: 5%;
 
     h2 {

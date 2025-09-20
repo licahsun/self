@@ -7,6 +7,7 @@ import Character from "./pages/Character"
 import Music from "./pages/Music"
 import News from "./pages/News"
 import Footer from "./pages/Footer"
+import ScrollToTop2 from './components/ScrollToTop2'
 
 
 function App() {
@@ -118,6 +119,7 @@ function App() {
 
       <footer>
         <Footer/>
+        <ScrollToTop2/>
       </footer>
     </>
   )

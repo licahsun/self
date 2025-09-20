@@ -1,0 +1,157 @@
+.back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.386);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .button-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        /* 三個同心圓軌道 */
+        .orbit {
+            position: absolute;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .orbit-1 {
+            width: 100px;
+            height: 100px;
+            animation: rotate-clockwise 4s linear infinite;
+            border: 1px solid #00d4aa;
+        }
+
+        .orbit-2 {
+            width: 75px;
+            height: 75px;
+            border: 2px solid #00d4aa;
+            animation: rotate-counter-clockwise 3s linear infinite;
+        }
+
+        .orbit-3 {
+            width: 45px;
+            height: 45px;
+            border: 1px solid #00d4aa;
+            animation: rotate-clockwise 2s linear infinite;
+        }
+
+        /* 三個旋轉的點 */
+        .sDot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #00d4aa;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00d4aa;
+        }
+
+        .sDot-1 {
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .sDot-2 {
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .sDot-3 {
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 中央箭頭 */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 12px solid #00d4aa;
+            filter: drop-shadow(0 0 5px #00d4aa);
+        }
+
+        /* 旋轉動畫 */
+        @keyframes rotate-clockwise {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes rotate-counter-clockwise {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(-360deg);
+            }
+        }
+
+        /* 點擊效果 */
+        .back-to-top:active {
+            transform: scale(0.95);
+        }
+
+        .back-to-top:active .orbit {
+            animation-duration: 0.5s;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .back-to-top {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .button-container {
+                width: 45px;
+                height: 45px;
+            }
+
+            .orbit-1 {
+                width: 45px;
+                height: 45px;
+            }
+
+            .orbit-2 {
+                width: 35px;
+                height: 35px;
+            }
+
+            .orbit-3 {
+                width: 25px;
+                height: 25px;
+            }
+        }
