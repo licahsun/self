@@ -1,73 +1,465 @@
-.musicBg {
-    background-image: url(../../public/images/musicBg.avif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    // background-color: black;
-    height: 100vh;
+// MusicCarousel.scss
+.musicSection {
     width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #000 0%, #001a0d 50%, #000 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #04E8C0;
+}
+
+// 背景動畫線條
+.musicBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.musicLine {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #04E8C0, transparent);
+    opacity: 0.3;
+    animation: musicLineScan 4s ease-in-out infinite;
+
+    &:nth-child(odd) {
+        animation-direction: reverse;
+    }
+
+    @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+            top: #{$i * 5}%;
+            animation-delay: #{$i * 0.2}s;
+        }
+    }
+}
+
+@keyframes musicLineScan {
+
+    0%,
+    100% {
+        opacity: 0.1;
+        transform: scaleX(0.5);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scaleX(1);
+    }
+}
+
+// MUSIC 標題
+.musicTitle {
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    z-index: 10;
 
     h2 {
         color: #5BFFE2;
         text-shadow: 0 4px 6.5px rgba(0, 0, 0, 0.55), 0 4px 7.2px #FDFFFF;
-        font-family: Orbitron;
         font-size: 64px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
-
-        
-        margin: 5%;
+        animation: musicTitleGlow 3s ease-in-out infinite alternate;
+        margin: 0;
     }
 }
 
+@keyframes musicTitleGlow {
+    0% {
+        text-shadow: 0 0 20px #04E8C0, 0 0 40px #04E8C0, 0 0 60px #04E8C0;
+    }
 
-//swiper
-.swiper {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-
+    100% {
+        text-shadow: 0 0 30px #04E8C0, 0 0 60px #04E8C0, 0 0 90px #04E8C0;
+    }
 }
 
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: transparent;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-    width: 300px;
-    
-
-    /* Center slide text vertically */
+// 播放控制區
+.musicControls {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
     display: flex;
-    justify-content: center;
     align-items: center;
-    
+    gap: 30px;
 }
 
-.swiper-slide img {
-    display: block;
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
+.musicPlayButton {
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-    border-radius: 19.022px;
-    // background: url(<path-to-image>) lightgray -126.231px -63.92px / 173.44% 173.44% no-repeat;
-
-    box-shadow: 0 0 47.364px 0 rgba(227, 255, 242, 0.50), 0 0 177.473px 58.967px rgba(41, 136, 119, 0.65);
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
-.swiper {
+.musicPlayCircle {
+    width: 120px;
+    height: 120px;
+    border: 3px solid #04E8C0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 232, 205, 0.1);
+    position: relative;
+    animation: musicPlayPulse 2s ease-in-out infinite;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        border: 1px solid rgba(0, 232, 205, 0.3);
+        border-radius: 50%;
+        animation: musicPlayRipple 3s ease-out infinite;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        border: 1px solid rgba(0, 232, 205, 0.2);
+        border-radius: 50%;
+        animation: musicPlayRipple 3s ease-out infinite 1s;
+    }
+}
+
+.musicPlayIcon {
+    font-size: 2.5rem;
+    color: #04E8C0;
+    text-shadow: 0 0 15px #04E8C0;
+}
+
+@keyframes musicPlayPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 232,205, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(0, 232, 205, 0.6);
+    }
+}
+
+@keyframes musicPlayRipple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+// 靜音按鈕
+.musicMuteButton {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(0, 232, 205, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 232, 205, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(0, 232, 205, 0.2);
+        border-color: #04E8C0;
+    }
+}
+
+.musicMuteIcon {
+    font-size: 1.2rem;
+    color: #04E8C0;
+}
+
+// 輪播容器
+.musicCarouselContainer {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8%;
     width: 100%;
-    height: 300px;
-    margin: 20px auto;
-    overflow: visible;
 }
 
-.swiper-slide-active {
-    width: 300px;
+.musicCarousel {
+    width: 80%;
+    max-width: 1200px;
+    position: relative;
 }
-.swiper-slide-next{
-    width: 300px;
+
+.musicTrackList {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 20px;
 }
+
+.musicTrackItem {
+    min-width: 300px;
+    height: 300px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &.musicActive {
+        transform: scale(1.1);
+
+        .musicCover {
+            border-color: #04E8C0;
+            box-shadow: 0 0 30px rgba(0, 232, 205, 0.6);
+        }
+    }
+}
+
+.musicCover {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 232, 205, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 232, 205, 0.1), rgba(0, 232, 205, 0.05));
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+
+    img {
+        width: 100%;
+        height: 70%;
+        object-fit: cover;
+        border-radius: 13px 13px 0 0;
+    }
+}
+
+.musicTrackInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.musicTrackTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #04E8C0;
+    margin: 0 0 5px 0;
+    text-shadow: 0 0 10px rgba(0, 232, 205, 0.5);
+}
+
+.musicArtistName {
+    font-size: 0.9rem;
+    color: #82D6B6;
+    margin: 0;
+    opacity: 0.8;
+}
+
+// 導航按鈕
+.musicNavButton {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #04E8C0;
+    border-radius: 50%;
+    background: rgba(0, 232, 205, 0.1);
+    color: #04E8C0;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: rgba(0, 232, 205, 0.3);
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 232, 205, 0.4);
+    }
+
+    &.musicPrevButton {
+        left: 5%;
+    }
+
+    &.musicNextButton {
+        right: 5%;
+    }
+}
+
+// 當前播放信息
+.musicCurrentTrack {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+}
+
+.musicCurrentInfo {
+    background: rgba(0, 232, 205, 0.05);
+    border: 1px solid rgba(0, 232, 205, 0.3);
+    border-radius: 20px;
+    padding: 20px 40px;
+    backdrop-filter: blur(15px);
+    animation: musicCurrentPulse 4s ease-in-out infinite;
+}
+
+.musicCurrentTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #04E8C0;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 15px rgba(0, 232, 205, 0.6);
+}
+
+.musicCurrentArtist {
+    font-size: 1.2rem;
+    color: #82D6B6;
+    margin: 0;
+    opacity: 0.9;
+}
+
+@keyframes musicCurrentPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 232, 205, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(0, 232, 205, 0.4);
+    }
+}
+
+// 裝飾性圓形
+.musicDecoCircle {
+    position: absolute;
+    border: 2px solid rgba(0, 232, 205, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: musicDecoRotate 20s linear infinite;
+}
+
+.musicTopCircle {
+    width: 80px;
+    height: 80px;
+    top: 12%;
+    right: 15%;
+    animation-direction: normal;
+}
+
+.musicBottomCircle {
+    width: 120px;
+    height: 120px;
+    bottom: 25%;
+    left: 12%;
+    animation-direction: reverse;
+    border-style: dashed;
+}
+
+@keyframes musicDecoRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// 響應式設計
+@media (max-width: 768px) {
+    .musicTitle h2 {
+        font-size: 2.5rem;
+    }
+
+    .musicPlayCircle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .musicPlayIcon {
+        font-size: 1.8rem;
+    }
+
+    .musicCarousel {
+        width: 90%;
+    }
+
+    .musicTrackItem {
+        min-width: 250px;
+        height: 250px;
+    }
+
+    .musicNavButton {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .musicCurrentTitle {
+        font-size: 1.4rem;
+    }
+
+    .musicCurrentArtist {
+        font-size: 1rem;
+    }
+
+    .musicControls {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .musicTitle {
+        top: 5%;
+        left: 5%;
+    }
+
+    .musicTitle h2 {
+        font-size: 2rem;
+    }
+
+    .musicTrackItem {
+        min-width: 200px;
+        height: 200px;
+    }
+
+    .musicCurrentInfo {
+        padding: 15px 25px;
+    }
+
+    .musicBackground .musicLine:nth-child(2n) {
+        display: none; // 減少動畫元素
+    }
+}
+
