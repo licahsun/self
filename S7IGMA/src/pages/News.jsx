@@ -6,12 +6,12 @@ const News = () => {
         <>
             <section className="news">
                 {/* <!-- 左側裝飾區域 --> */}
-                <div class="left-decoration">
-                    <div class="news-vertical">NEWS</div>
-                    <div class="circular-decoration"></div>
-                    <div class="bottom-dots">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
+                <div className="left-decoration">
+                    <div className="news-vertical">NEWS</div>
+                    <div className="circular-decoration"></div>
+                    <div className="bottom-dots">
+                        <div className="dot active"></div>
+                        <div className="dot"></div>
                     </div>
                 </div>
                 <NewsItems />

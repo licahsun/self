@@ -135,7 +135,14 @@ const Music = () => {
             {/* 背景線條 */}
             <div className="musicBackground">
                 {Array.from({ length: 20 }, (_, i) => (
-                    <div key={i} className="musicLine" style={{ animationDelay: `${i * 0.1}s` }}></div>
+                    <div
+                        key={i}
+                        className="musicLine"
+                        style={{
+                            top: `${(i + 1) * 5}%`,
+                            animationDelay: `${(i + 1) * 0.2}s`
+                        }}
+                    ></div>
                 ))}
             </div>
 

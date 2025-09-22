@@ -145,6 +145,10 @@
     .RM {
         transform: scale(1.1);
         color: #0bf7cc;
+
+        &:hover{
+            text-decoration: underline;
+        }
     }
 }
 
@@ -218,6 +222,7 @@
 }
 
 .pagination button {
+    width: 39px;
     margin-bottom: 1%;
     background: transparent;
     border: 1px solid #04E8C0;
@@ -226,6 +231,9 @@
     cursor: pointer;
     font-family: inherit;
     transition: all 0.3s ease;
+    display: flex
+;
+    justify-content: center;
 }
 
 .pagination button:hover,

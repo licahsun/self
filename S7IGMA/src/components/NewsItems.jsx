@@ -165,7 +165,7 @@ const News = () => {
                                 <div className="date-column">
                                     <div className="publish-date">
                                         {news.date}
-                                        {actualIndex === 0 && <span className="new-badge">NEW!</span>}
+                                        {actualIndex === 0 && <span className="new-badge">&nbsp;&nbsp;NEW!</span>}
                                     </div>
                                     <div className="event-dates">
                                         <div>{news.eventDateF}</div>

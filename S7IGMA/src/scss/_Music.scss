@@ -35,12 +35,12 @@
         animation-direction: reverse;
     }
 
-    @for $i from 1 through 20 {
-        &:nth-child(#{$i}) {
-            top: #{$i * 5}%;
-            animation-delay: #{$i * 0.2}s;
-        }
-    }
+    // @for $i from 1 through 20 {
+    //     &:nth-child(#{$i}) {
+    //         top: #{$i * 5}%;
+    //         animation-delay: #{$i * 0.2}s;
+    //     }
+    // }
 }
 
 @keyframes musicLineScan {
@@ -285,13 +285,13 @@
 // 導航按鈕
 .musicNavButton {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border: 2px solid #04E8C0;
     border-radius: 50%;
     background: rgba(0, 232, 205, 0.1);
     color: #04E8C0;
-    font-size: 2rem;
+    font-size: 1rem;
     cursor: pointer;
     z-index: 20;
     transition: all 0.3s ease;
