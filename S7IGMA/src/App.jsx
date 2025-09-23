@@ -8,6 +8,7 @@ import Music from "./pages/Music"
 import News from "./pages/News"
 import Footer from "./pages/Footer"
 import ScrollToTop2 from './components/ScrollToTop2'
+import AlbumCarousel from './components/AlbumCarousel'
 
 
 function App() {

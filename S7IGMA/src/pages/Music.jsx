@@ -5,6 +5,7 @@ import album02 from "../../public/images/album02.avif"
 import album03 from "../../public/images/album03.avif"
 import album04 from "../../public/images/album04.avif"
 import album05 from "../../public/images/album05.avif"
+import AlbumCarousel from "../components/AlbumCarousel"
 
 import { useState, useEffect, useRef } from 'react';
 
@@ -132,23 +133,9 @@ const Music = () => {
 
     return (
         <div className="musicSection">
-            {/* 背景線條 */}
-            <div className="musicBackground">
-                {Array.from({ length: 20 }, (_, i) => (
-                    <div
-                        key={i}
-                        className="musicLine"
-                        style={{
-                            top: `${(i + 1) * 5}%`,
-                            animationDelay: `${(i + 1) * 0.2}s`
-                        }}
-                    ></div>
-                ))}
-            </div>
-
             {/* MUSIC 標題 */}
             <div className="musicTitle">
-                <h1>MUSIC</h1>
+                <h2>MUSIC</h2>
             </div>
 
             {/* 上方播放控制區 */}
@@ -161,45 +148,20 @@ const Music = () => {
                     </div>
                 </div>
 
-                <div className="musicMuteButton" onClick={musicToggleMute}>
+                {/* <div className="musicMuteButton" onClick={musicToggleMute}>
                     <div className="musicMuteIcon">
                         {musicIsMuted ? '🔇' : '🔊'}
                     </div>
-                </div>
+                </div> */}
             </div>
 
             {/* 輪播區域 */}
-            <div className="musicCarouselContainer">
-                <button className="musicNavButton musicPrevButton" onClick={musicPrevTrack}>
-                    ‹
-                </button>
-
-                <div className="musicCarousel">
-                    <div className="musicTrackList" ref={musicCarouselRef}>
-                        {musicTracks.map((track, index) => (
-                            <div
-                                key={track.id}
-                                className={`musicTrackItem ${index === musicCurrentIndex ? 'musicActive' : ''}`}
-                                onClick={() => musicSelectTrack(index)}
-                            >
-                                <div className="musicCover">
-                                    <img src={track.musicCover} alt={track.musicTitle} />
-                                    <div className="musicTrackInfo">
-                                        <h3 className="musicTrackTitle">{track.musicTitle}</h3>
-                                        <p className="musicArtistName">{track.musicArtist}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <button className="musicNavButton musicNextButton" onClick={musicNextTrack}>
-                    ›
-                </button>
+            <div className="albumCarousel">
+                {/* <div className="musicCarouselContainer"> */}
+                <AlbumCarousel />
             </div>
 
-            {/* 當前播放信息 */}
+            {/* 當前播放訊息 */}
             <div className="musicCurrentTrack">
                 <div className="musicCurrentInfo">
                     <h2 className="musicCurrentTitle">{musicCurrentTrack.musicTitle}</h2>
@@ -218,6 +180,20 @@ const Music = () => {
             {/* 裝飾性圓形 */}
             <div className="musicDecoCircle musicTopCircle"></div>
             <div className="musicDecoCircle musicBottomCircle"></div>
+
+            {/* 背景線條 */}
+            <div className="musicBackground">
+                {Array.from({ length: 20 }, (_, i) => (
+                    <div
+                        key={i}
+                        className="musicLine"
+                        style={{
+                            top: `${(i + 1) * 5}%`,
+                            animationDelay: `${(i + 1) * 0.2}s`
+                        }}
+                    ></div>
+                ))}
+            </div>
         </div>
     );
 };
