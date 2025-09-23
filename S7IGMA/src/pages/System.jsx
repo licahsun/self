@@ -1,6 +1,6 @@
 import "../scss/_System.scss"
-import systemItem from '../../public/images/systemItem.avif'
-import systemVideo from '../../public/images/systemVideo.avif'
+import systemItem from '../assets/images/systemItem.avif'
+import systemVideo from '../assets/images/systemVideo.avif'
 
 const System = () => {
     return (

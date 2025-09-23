@@ -1,5 +1,5 @@
 import "../scss/_Top.scss"
-import Logo from '../../public/images/s7igma.svg'
+import Logo from '../assets/images/s7igma.svg'
 
 const Top = () => {
     return (

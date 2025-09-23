@@ -1,5 +1,5 @@
 import "../scss/_Footer.scss"
-import Logo from "../../public/images/s7igma.svg"
+import Logo from "../assets/images/s7igma.svg"
 import ScrollToTop from "../components/ScrollToTop"
 import ScrollToTop2 from "../components/ScrollToTop2"
 

@@ -1,10 +1,10 @@
 import "../scss/_Music.scss"
 //img
-import album01 from "../../public/images/album01.avif"
-import album02 from "../../public/images/album02.avif"
-import album03 from "../../public/images/album03.avif"
-import album04 from "../../public/images/album04.avif"
-import album05 from "../../public/images/album05.avif"
+import album01 from "../assets/images/album01.avif"
+import album02 from "../assets/images/album02.avif"
+import album03 from "../assets/images/album03.avif"
+import album04 from "../assets/images/album04.avif"
+import album05 from "../assets/images/album05.avif"
 import AlbumCarousel from "../components/AlbumCarousel"
 
 import { useState, useEffect, useRef } from 'react';

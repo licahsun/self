@@ -1,7 +1,7 @@
 // components/ScrollToTop.jsx (圖片版本)
 import React, { useState, useEffect } from 'react';
 // import './ScrollToTop.scss';
-import topArrowIcon from '../../public/images/ToTheTop.avif'; 
+import topArrowIcon from '../assets/images/ToTheTop.avif'; 
 
 const ScrollToTop = () => {
     const [isVisible, setIsVisible] = useState(false);

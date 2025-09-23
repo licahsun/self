@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-image: url(../../public/images/bodyBackGround.avif);
+    background-image: url(../assets/images/bodyBackGround.avif);
     background-attachment: fixed;
 }
 
@@ -31,7 +31,7 @@ section {
         position: relative;
         width: 100vw;
         height: 100vh;
-        background-image: linear-gradient(#ffffff00, #7886747b), url(../public/images/header_bg.avif);
+        background-image: linear-gradient(#ffffff00, #7886747b), url(../assets/images/header_bg.avif);
         background-position: left top;
     }
 

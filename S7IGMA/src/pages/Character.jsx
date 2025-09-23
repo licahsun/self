@@ -1,9 +1,9 @@
 import "../scss/_Character.scss"
-import charaItem from "../../public/images/charaItem01.avif"
-import CharaIcon01 from "../../public/images/CharaIcon01.avif"
-import CharaIcon02 from "../../public/images/CharaIcon02.avif"
-import charaItem02 from "../../public/images/charaItem02.avif"
-import chara01 from "../../public/images/charaItem03.avif"
+import charaItem from "../assets/images/charaItem01.avif"
+import CharaIcon01 from "../assets/images/CharaIcon01.avif"
+import CharaIcon02 from "../assets/images/CharaIcon02.avif"
+import charaItem02 from "../assets/images/charaItem02.avif"
+import chara01 from "../assets/images/charaItem03.avif"
 
 const Character = () => {
     return (

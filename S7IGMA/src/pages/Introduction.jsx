@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import "../scss/_Introduction.scss"
-import introCircle from '../../public/images/introCircle.avif'
-import introItem from '../../public/images/introItem.webp'
-import introItem3 from '../../public/images/introItem03.svg'
-import introItem4 from '../../public/images/introItem04.svg'
+import introCircle from '../assets/images/introCircle.avif'
+import introItem from '../assets/images/introItem.webp'
+import introItem3 from '../assets/images/introItem03.svg'
+import introItem4 from '../assets/images/introItem04.svg'
 
 const Introduction = () => {
     useEffect(() => {
