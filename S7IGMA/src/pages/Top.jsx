@@ -1,7 +1,19 @@
 import "../scss/_Top.scss"
 import Logo from '../assets/images/s7igma.svg'
+import React, { useRef } from 'react';
 
-const Top = () => {
+const Top = ({ sectionRefs }) => {
+    const scrollToSection = (elementRef, offset = 80) => {
+        if (elementRef.current) {
+            const elementPosition = elementRef.current.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
     return (
         <>
             <div className="top">
@@ -14,11 +26,31 @@ const Top = () => {
 
                     <ul className="menu">
                         <img src={Logo} alt="" />
-                        <li><a href="#">INTRODUCTION</a></li>
-                        <li><a href="#">SYSTEM</a></li>
-                        <li><a href="#">CHARACTER</a></li>
-                        <li><a href="#">MUSIC</a></li>
-                        <li><a href="#">NEWS</a></li>
+                        <li><a onClick={(e) => {
+                            e.preventDefault();
+                            scrollToSection(sectionRefs.introRef);
+                        }}
+                            href="#introduction">INTRODUCTION</a></li>
+                        <li><a onClick={(e) => {
+                            e.preventDefault();
+                            scrollToSection(sectionRefs.systemRef);
+                        }}
+                            href="#system">SYSTEM</a></li>
+                        <li><a onClick={(e) => {
+                            e.preventDefault();
+                            scrollToSection(sectionRefs.characterRef);
+                        }}
+                            href="#character">CHARACTER</a></li>
+                        <li><a onClick={(e) => {
+                            e.preventDefault();
+                            scrollToSection(sectionRefs.musicRef);
+                        }}
+                            href="#music">MUSIC</a></li>
+                        <li><a onClick={(e) => {
+                            e.preventDefault();
+                            scrollToSection(sectionRefs.newsRef);
+                        }}
+                            href="#news">NEWS</a></li>
                     </ul>
                     <div className='menu_p'>
                         <p>無聲之城，暗潮湧動</p>
