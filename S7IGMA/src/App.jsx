@@ -81,7 +81,7 @@ function App() {
     <>
       <main>
         <section >
-          <Top />
+          <Top sectionRefs={sectionRefs} />
         </section>
 
         <section

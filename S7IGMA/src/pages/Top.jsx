@@ -3,7 +3,7 @@ import Logo from '../assets/images/s7igma.svg'
 import React, { useRef } from 'react';
 
 const Top = ({ sectionRefs }) => {
-    const scrollToSection = (elementRef, offset = 80) => {
+    const scrollToSection = (elementRef, offset = 0) => {
         if (elementRef.current) {
             const elementPosition = elementRef.current.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
