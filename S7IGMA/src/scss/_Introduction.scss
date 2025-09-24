@@ -5,7 +5,7 @@
     background-attachment: fixed;
     position: relative;
     overflow: hidden;
-    height: 150vh;
+    height: 100vh;
 
     // 背景粒子系統
     .introParticles {
@@ -276,7 +276,7 @@
         position: absolute;
         left: 5%;
         top: -15%;
-        transition: transform .5s;
+        // transition: transform .5s;
 
         
     }
@@ -286,7 +286,7 @@
         right: 5%;
         bottom: -5%;
         rotate: 90deg;
-        transition: transform .5s;
+        // transition: transform .5s;
 
         // &:hover {
         //     transform: scale(0.8) rotate(90deg);
@@ -357,7 +357,7 @@
 
     .introCircle {
         position: absolute;
-        top: 21%;
+        top: 7%;
         z-index: 5;
 
         @keyframes introCircleRotation {
@@ -406,7 +406,7 @@
         }
 
         .introWords {
-            top: 35%;
+            top: 19%;
             padding: 0 20px;
 
             .introPWord {

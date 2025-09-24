@@ -30,7 +30,7 @@ const Introduction = () => {
             const mouseY = e.clientY / window.innerHeight;
             
             // 對 introItem 元素添加視差效果
-            const introItems = document.querySelectorAll('.introItem1, .introItem2, .introItem3, .introItem4');
+            const introItems = document.querySelectorAll('.introItem1, .introItem2');
             introItems.forEach((item, index) => {
                 const speed = (index + 1) * 0.3;
                 const x = (mouseX - 0.5) * speed * 15;

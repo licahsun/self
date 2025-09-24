@@ -8,10 +8,11 @@ import Music from "./pages/Music"
 import News from "./pages/News"
 import Footer from "./pages/Footer"
 import ScrollToTop2 from './components/ScrollToTop2'
-import AlbumCarousel from './components/AlbumCarousel'
+
 
 
 function App() {
+
   // 為每個區塊建立獨立的狀態
   const [isIntroVisible, setIsIntroVisible] = useState(false);
   const [isSystemVisible, setIsSystemVisible] = useState(false);
@@ -65,13 +66,21 @@ function App() {
       if (newsRef.current) newsObserver.unobserve(newsRef.current);
     };
   }, []);
+  // 將 refs 整理成物件傳遞給 Top 組件
+  const sectionRefs = {
+    introRef,
+    systemRef,
+    characterRef,
+    musicRef,
+    newsRef
+  };
 
-  
+
 
   return (
     <>
       <main>
-        <section>
+        <section >
           <Top />
         </section>
 
@@ -114,13 +123,13 @@ function App() {
           ref={newsRef}
           className={`news-section ${isNewsVisible ? 'visible' : ''}`}
         >
-        <News/>
+          <News />
         </section>
       </main>
 
       <footer>
-        <Footer/>
-        <ScrollToTop2/>
+        <Footer />
+        <ScrollToTop2 />
       </footer>
     </>
   )
