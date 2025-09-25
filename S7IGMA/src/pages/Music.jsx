@@ -24,8 +24,8 @@ const Music = () => {
             musicTitle: 'Neon Pulse',
             musicArtist: 'Digital Dreams',
             musicCover: album01,
-            musicSrc: '', // 實際音檔路徑
-            musicDuration: 180 // 3分鐘
+            musicSrc: '', 
+            musicDuration: 180 
         },
         {
             id: 2,
@@ -148,11 +148,6 @@ const Music = () => {
                     </div>
                 </div>
 
-                {/* <div className="musicMuteButton" onClick={musicToggleMute}>
-                    <div className="musicMuteIcon">
-                        {musicIsMuted ? '🔇' : '🔊'}
-                    </div>
-                </div> */}
             </div>
 
             {/* 輪播區域 */}

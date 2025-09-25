@@ -13,14 +13,14 @@ import ScrollToTop2 from './components/ScrollToTop2'
 
 function App() {
 
-  // 為每個區塊建立獨立的狀態
+  // 區塊獨立
   const [isIntroVisible, setIsIntroVisible] = useState(false);
   const [isSystemVisible, setIsSystemVisible] = useState(false);
   const [isCharacterVisible, setIsCharacterVisible] = useState(false);
   const [isMusicVisible, setIsMusicVisible] = useState(false);
   const [isNewsVisible, setIsNewsVisible] = useState(false);
 
-  // 為每個區塊建立獨立的 ref
+  // 獨立的ref
   const introRef = useRef(null);
   const systemRef = useRef(null);
   const characterRef = useRef(null);
@@ -36,21 +36,21 @@ function App() {
         }
       },
       {
-        threshold: 0.3, // 當 30% 的區域進入視窗時觸發
-        rootMargin: '-50px 0px' // 提前 50px 觸發
+        threshold: 0.3, 
+        rootMargin: '-50px 0px' 
       }
     );
   };
 
   useEffect(() => {
-    // 為每個區塊建立 observer
+    // observer
     const introObserver = createObserver(setIsIntroVisible);
     const systemObserver = createObserver(setIsSystemVisible);
     const characterObserver = createObserver(setIsCharacterVisible);
     const musicObserver = createObserver(setIsMusicVisible);
     const newsObserver = createObserver(setIsNewsVisible);
 
-    // 開始觀察各個區塊
+    // 觀察各個區塊
     if (introRef.current) introObserver.observe(introRef.current);
     if (systemRef.current) systemObserver.observe(systemRef.current);
     if (characterRef.current) characterObserver.observe(characterRef.current);
@@ -66,6 +66,7 @@ function App() {
       if (newsRef.current) newsObserver.unobserve(newsRef.current);
     };
   }, []);
+  
   // 將 refs 整理成物件傳遞給 Top 組件
   const sectionRefs = {
     introRef,
