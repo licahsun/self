@@ -11,9 +11,9 @@ const Introduction = () => {
         const createIntroParticles = () => {
             const container = document.querySelector('.introParticles');
             if (!container) return;
-            
+
             const particleCount = 40;
-            
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'introParticle';
@@ -24,28 +24,28 @@ const Introduction = () => {
             }
         };
 
-        // 滑鼠移動視差效果
+        // 滑鼠移動視差效果 - 修正版
         const handleMouseMove = (e) => {
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
-            
-            // 對 introItem 元素添加視差效果
-            const introItems = document.querySelectorAll('.introItem1, .introItem2');
-            introItems.forEach((item, index) => {
-                const speed = (index + 1) * 0.3;
-                const x = (mouseX - 0.5) * speed * 15;
-                const y = (mouseY - 0.5) * speed * 15;
-                item.style.transform += ` translate(${x}px, ${y}px)`;
-            });
 
-            // 對文字區塊添加輕微浮動
-            const introWords = document.querySelectorAll('.introPWord');
-            introWords.forEach((word, index) => {
-                const speed = 0.2;
-                const x = (mouseX - 0.5) * speed * 8;
-                const y = (mouseY - 0.5) * speed * 8;
-                word.style.transform += ` translate(${x}px, ${y}px)`;
-            });
+            // 對 introItem 元素添加視差效果
+            const introItem1 = document.querySelector('.introItem1');
+            const introItem2 = document.querySelector('.introItem2');
+
+            if (introItem1) {
+                const speed1 = 0.3;
+                const x1 = (mouseX - 0.5) * speed1 * 15;
+                const y1 = (mouseY - 0.5) * speed1 * 15;
+                introItem1.style.transform = `translate(${x1}px, ${y1}px)`;
+            }
+
+            if (introItem2) {
+                const speed2 = 0.6;
+                const x2 = (mouseX - 0.5) * speed2 * 15;
+                const y2 = (mouseY - 0.5) * speed2 * 15;
+                introItem2.style.transform = `translate(${x2}px, ${y2}px) rotate(90deg)`;
+            }
         };
 
         createIntroParticles();
@@ -55,12 +55,11 @@ const Introduction = () => {
             document.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
-
     return (
         <>
             {/* 背景粒子容器 */}
             <div className="introParticles"></div>
-            
+
             {/* 光暈裝飾 */}
             <div className="introGlow introGlow1"></div>
             <div className="introGlow introGlow2"></div>
@@ -73,7 +72,7 @@ const Introduction = () => {
             <div className="introItem4"><img src={introItem4} alt="" /></div>
 
             <div className='introTitle'>
-                
+
             </div>
 
             <div className="introWords">
