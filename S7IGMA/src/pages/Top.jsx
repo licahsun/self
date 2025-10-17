@@ -36,11 +36,11 @@ const Top = ({ sectionRefs }) => {
                             scrollToSection(sectionRefs.systemRef);
                         }}
                             href="#system">SYSTEM</a></li>
-                        <li><a onClick={(e) => {
+                        {/* <li><a onClick={(e) => {
                             e.preventDefault();
                             scrollToSection(sectionRefs.characterRef);
                         }}
-                            href="#character">CHARACTER</a></li>
+                            href="#character">CHARACTER</a></li> */}
                         <li><a onClick={(e) => {
                             e.preventDefault();
                             scrollToSection(sectionRefs.musicRef);

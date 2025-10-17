@@ -106,12 +106,12 @@ function App() {
           <System />
         </section>
 
-        <section
+        {/* <section
           ref={characterRef}
           className={`character-section ${isCharacterVisible ? 'visible' : ''}`}
         >
           <Character />
-        </section>
+        </section> */}
 
         <section
           ref={musicRef}
